@@ -1,4 +1,6 @@
 const URL = "https://pokeapi.co/api/v2/pokemon/";
+let paginaAnterior = null;
+let paginaSiguiente = null;
 
 function obtenerPokemones(pokemones) {
   try {
@@ -6,6 +8,8 @@ function obtenerPokemones(pokemones) {
       .then((res) => res.json())
       .then((data) => {
         mostrarListaPokemones(data.results);
+        paginaAnterior = data.previous;
+        paginaSiguiente = data.next;
       });
   } catch (error) {
     console.error(error);
@@ -13,6 +17,7 @@ function obtenerPokemones(pokemones) {
 }
 
 function mostrarListaPokemones(pokemones) {
+  limpiarPokemones();
   pokemones.forEach((pokemon) => {
     crearItemPokemon(pokemon.name);
   });
@@ -54,13 +59,19 @@ function mostrarPokemon(pokemonData) {
   document.querySelector(".altura").textContent = altura;
 }
 
-function manejarPagina(paginador) {
-  paginador.onclick = function (event) {
-    event.preventDefault();
-    const url = event.target.href;
-    obtenerPokemones(url);
-  };
+function limpiarPokemones() {
+  document.querySelector("ul").innerText = "";
+}
+
+function obtenerPaginaAnterior() {
+  if (paginaAnterior != null) obtenerPokemones(paginaAnterior);
+}
+
+function obtenerPaginaSiguiente() {
+  if (paginaSiguiente != null) obtenerPokemones(paginaSiguiente);
 }
 
 obtenerPokemones(URL);
 manejarEventosPokemon(document.querySelector("ul"));
+document.querySelector(".btnAnterior").onclick = obtenerPaginaAnterior;
+document.querySelector(".btnSiguiente").onclick = obtenerPaginaSiguiente;
