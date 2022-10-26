@@ -6,24 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokedex</title>
+  <link rel="stylesheet" href="node_modules/papercss/dist/paper.min.css">
   <link rel="stylesheet" href="src/index.css">
 </head>
 
 <body>
   <main>
-    <ul></ul>
-    <div>
-      <img src="" alt="pokemon" class="imagen">
-      <ul>
-        <li>Nombre: <strong class="nombre"></strong></li>
-        <li>Peso: <strong class="peso"></strong></li>
-        <li>Altura: <strong class="altura"></strong></li>
-      </ul>
+    <div class="row flex-center">
+      <div class="sm-4 col">
+        <ul class="contenedor-pokemones">
+        </ul>
+        <nav class="paginacion">
+          <button class="btnAnterior btn-small">PREV</button>
+          <button class="btnSiguiente btn-small">NEXT</button>
+        </nav>
+      </div>
+      <div class="card contenedor-pokemon sm-4 col">
+        <div class="card-header"><strong class="nombre">POKEMON</strong></div>
+        <img src="src/img/pokemon.png" alt="pokemon" class="imagen">
+        <div>
+          <ul class="">
+            <li class="poke-info">Peso: <strong class="peso"></strong></li>
+            <li class="poke-info">Altura: <strong class="altura"></strong></li>
+          </ul>
+          <div class="card-footer"></div>
+        </div>
+      </div>
     </div>
-    <nav class="paginacion">
-      <button class="btnAnterior">⬅️</button>
-      <button class="btnSiguiente">➡️</button>
-    </nav>
   </main>
   <script src="src/index.js"></script>
 </body>

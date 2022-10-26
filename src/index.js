@@ -27,7 +27,7 @@ function crearItemPokemon(pokemon) {
   const $item = document.createElement("li");
   $item.id = pokemon;
   $item.textContent = pokemon;
-  document.querySelector("ul").appendChild($item);
+  document.querySelector(".contenedor-pokemones").appendChild($item);
 }
 
 function manejarEventosPokemon($listaPokemones) {
