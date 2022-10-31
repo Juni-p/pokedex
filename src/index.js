@@ -28,6 +28,7 @@ function mostrarListaPokemones(pokemones) {
 function crearItemPokemon(pokemon) {
   const $item = document.createElement("li");
   $item.id = pokemon;
+  $item.setAttribute("data-test", "item-pokemon");
   $item.textContent = pokemon;
   document.querySelector(".contenedor-pokemones").appendChild($item);
 }
