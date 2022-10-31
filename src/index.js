@@ -1,6 +1,8 @@
 const URL = "https://pokeapi.co/api/v2/pokemon/";
-let paginaAnterior = null;
-let paginaSiguiente = null;
+let paginaAnterior = "";
+let paginaSiguiente = "";
+
+const $listaPokemones = document.querySelector(".contenedor-pokemones");
 
 function obtenerPokemones(pokemones) {
   try {
@@ -60,18 +62,18 @@ function mostrarPokemon(pokemonData) {
 }
 
 function limpiarPokemones() {
-  document.querySelector("ul").innerText = "";
+  $listaPokemones.innerText = "";
 }
 
 function obtenerPaginaAnterior() {
-  if (paginaAnterior != null) obtenerPokemones(paginaAnterior);
+  if (paginaAnterior) obtenerPokemones(paginaAnterior);
 }
 
 function obtenerPaginaSiguiente() {
-  if (paginaSiguiente != null) obtenerPokemones(paginaSiguiente);
+  if (paginaSiguiente) obtenerPokemones(paginaSiguiente);
 }
 
 obtenerPokemones(URL);
-manejarEventosPokemon(document.querySelector("ul"));
+manejarEventosPokemon($listaPokemones);
 document.querySelector(".btnAnterior").onclick = obtenerPaginaAnterior;
 document.querySelector(".btnSiguiente").onclick = obtenerPaginaSiguiente;
