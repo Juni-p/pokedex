@@ -5,7 +5,7 @@ let paginaSiguiente = "";
 export function obtenerPokemones() {
   return fetch(BASE_URL)
     .then((res) => res.json())
-    .then((pokemones) => pokemones.rates);
+    .then((pokemones) => pokemones.results);
 }
 
 function obtenerPokemon(nombrePokemon) {
