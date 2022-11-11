@@ -1,3 +1,4 @@
+import { paginaAnterior, paginaSiguiente } from "./paginador.js";
 import { mostrarPokemon } from "./ui.js";
 
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
@@ -5,7 +6,12 @@ const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 export function obtenerPokemones() {
   return fetch(BASE_URL)
     .then((res) => res.json())
-    .then((pokemones) => pokemones.results);
+    .then((pokemones) => {
+      console.log(pokemones.next);
+      pokemones.results;
+      paginaSiguiente = pokemones.next;
+      paginaAnterior = pokemones.previous;
+    });
 }
 
 export function obtenerPokemon(nombrePokemon) {
