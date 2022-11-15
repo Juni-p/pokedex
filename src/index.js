@@ -1,13 +1,11 @@
-import { obtenerPaginaAnterior, obtenerPaginaSiguiente } from "./paginador.js";
-import { manejarEventosPokemon, obtenerPokemones } from "./pokedex.js";
-import { mostrarListaPokemones } from "./ui.js";
+import { cambiarPagina } from "./paginador.js";
+import { manejarEventosPokemon } from "./pokedex.js";
 
 async function inicializar() {
   const $listaPokemones = document.querySelector(".contenedor-pokemones");
-  mostrarListaPokemones(await obtenerPokemones());
+
+  cambiarPagina();
   await manejarEventosPokemon($listaPokemones);
-  document.querySelector(".btnAnterior").onclick = obtenerPaginaAnterior;
-  document.querySelector(".btnSiguiente").onclick = obtenerPaginaSiguiente;
 }
 
 inicializar();
