@@ -40,14 +40,12 @@ async function obtenerPaginaAnterior(urlAnterior) {
     paginaAnterior = pokemones.previous;
     paginaSiguiente = pokemones.next;
     mostrarListaPokemones(pokemones.results);
-    console.log(urlAnterior);
   }
 }
 
 async function obtenerPaginaSiguiente(urlSiguiente) {
   if (urlSiguiente) {
     const pokemones = await obtenerPokemones(urlSiguiente);
-    console.log(pokemones);
     paginaAnterior = pokemones.previous;
     paginaSiguiente = pokemones.next;
     mostrarListaPokemones(pokemones.results);
