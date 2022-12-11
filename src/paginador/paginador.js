@@ -1,5 +1,5 @@
-import { obtenerPokemones } from "./pokedex.js";
-import { mostrarListaPokemones } from "./ui.js";
+import { obtenerPokemones } from "../api/api.js";
+import { mostrarListaPokemones } from "../ui/ui.js";
 
 let paginaAnterior;
 let paginaSiguiente;
@@ -20,22 +20,18 @@ export async function cambiarPagina() {
   paginaAnterior = pokemones.previous;
   paginaSiguiente = pokemones.next;
   manejarEventosPaginador(document.querySelector(".paginacion"));
-  console.log(paginaAnterior, paginaSiguiente);
 }
 
 function manejarEventosPaginador($paginador) {
-  $paginador.onclick = function (event) {
-    const $boton = event.target;
-    $boton.onclick = async function () {
-      console.log(paginaAnterior, paginaSiguiente);
-      if ($boton.classList[0] === "btnAnterior") {
-        obtenerPaginaAnterior(paginaAnterior);
-      }
-      if ($boton.classList[0] === "btnSiguiente") {
-        obtenerPaginaSiguiente(paginaSiguiente);
-      }
-    };
-  };
+  $paginador.addEventListener('click',async function(event){
+    const $boton = event.target
+    if ($boton.classList[0] === "btnAnterior") {
+      obtenerPaginaAnterior(paginaAnterior);
+    }
+    if ($boton.classList[0] === "btnSiguiente") {
+      obtenerPaginaSiguiente(paginaSiguiente);
+    }
+  })
 }
 
 async function obtenerPaginaAnterior(urlAnterior) {
