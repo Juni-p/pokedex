@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.8.3/dist/paper.min.css"
+    />
+    <link rel="stylesheet" href="src/css/index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokedex</title>
-  <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.3/dist/paper.min.css">
-  <link rel="stylesheet" href="src/index.css">
-</head>
-
-<body>
-  <main>
-    <div class="row flex-center">
-      <div class="sm-4 col">
-        <ul class="contenedor-pokemones" data-test="pokemones">
-        </ul>
-        <nav class="paginacion">
-          <button class="btnAnterior btn-small" href="#" data-test="botones">PREV</button>
-          <button class="btnSiguiente btn-small" href="#" data-test="botones">NEXT</button>
-        </nav>
-      </div>
-      <div class="card contenedor-pokemon sm-4 col" data-test="pokemon-info">
-        <div class="card-header"><strong class="nombre" data-test="nombre-pokemon">POKEMON</strong></div>
-        <img src="src/img/pokemon.png" alt="pokemon" class="imagen" data-test="imagen-pokemon">
-        <div>
-          <ul class="poke-atributos">
-            <li class="poke-info" data-test="peso">Peso: <strong class="peso" data-test="peso-pokemon"></strong></li>
-            <li class="poke-info" data-test="altura">Altura: <strong class="altura" data-test="altura-pokemon"></strong>
-            </li>
-          </ul>
-          <div class="card-footer"></div>
+  <body>
+    <main>
+      <div class="row flex-center">
+        <div class="sm-4 col">
+          <ul class="contenedor-pokemones" data-test="pokemones"></ul>
+          <nav class="paginacion">
+            <button class="btnAnterior btn-small" href="#" data-test="botones">
+              PREV
+            </button>
+            <button class="btnSiguiente btn-small" href="#" data-test="botones">
+              NEXT
+            </button>
+          </nav>
+        </div>
+        <div class="card contenedor-pokemon sm-4 col" data-test="pokemon-info">
+          <div class="card-header">
+            <strong class="nombre" data-test="nombre-pokemon">POKEMON</strong>
+          </div>
+          <img
+            src="src/img/pokemon.png"
+            alt="pokemon"
+            class="imagen"
+            data-test="imagen-pokemon"
+          />
+          <div>
+            <ul class="poke-atributos">
+              <li class="poke-info" data-test="peso">
+                Peso: <strong class="peso" data-test="peso-pokemon"></strong>
+              </li>
+              <li class="poke-info" data-test="altura">
+                Altura:
+                <strong class="altura" data-test="altura-pokemon"></strong>
+              </li>
+            </ul>
+            <div class="card-footer"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  <script src="src/index.js" type="module"></script>
-</body>
-
+    </main>
+    <script src="src/index.js" type="module"></script>
+  </body>
 </html>
