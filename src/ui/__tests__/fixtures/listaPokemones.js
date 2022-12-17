@@ -1,5 +1,14 @@
  export default [
-  'bulbasaur',
-  'ivysaur',
-  'venusaur',
+  {
+  "name": "ivysaur",
+  },
+  {
+  "name": "venusaur",
+  },
+  {
+  "name": "charmander",
+  },
+  {
+  "name": "charmeleon",
+  }
 ];

@@ -4,16 +4,6 @@ import { mostrarListaPokemones } from "../ui/ui.js";
 let paginaAnterior;
 let paginaSiguiente;
 
-export function pruebaAsignarUrl(urlNext, urlPrevious) {
-  console.log(urlNext, urlPrevious);
-  if (urlPrevious) {
-    document.querySelector(".btnAnterior").href = urlPrevious;
-  }
-  if (urlNext) {
-    document.querySelector(".btnSiguiente").href = urlNext;
-  }
-}
-
 export async function cambiarPagina() {
   const pokemones = await obtenerPokemones();
   mostrarListaPokemones(pokemones.results);
