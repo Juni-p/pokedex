@@ -17,14 +17,9 @@ export function mostrarListaPokemones(pokemones) {
   });
 }
 
-export function mostrarPokemon(pokemonData) {
-  const nombre = pokemonData.name;
-  const peso = pokemonData.weight;
-  const altura = pokemonData.height;
-  const imagen = pokemonData.sprites["front_default"];
-
-  document.querySelector(".imagen").src = imagen;
-  document.querySelector(".nombre").textContent = nombre;
-  document.querySelector(".peso").textContent = peso;
-  document.querySelector(".altura").textContent = altura;
+export function mostrarPokemon(pokemon) {
+  document.querySelector(".imagen").src = pokemon.imagen;
+  document.querySelector(".nombre").textContent = pokemon.nombre;
+  document.querySelector(".peso").textContent = pokemon.peso;
+  document.querySelector(".altura").textContent = pokemon.altura;
 }
